@@ -3,6 +3,14 @@
         <form action="{{ route('upload_file_independent_store') }}" enctype="multipart/form-data" method="post">
             @csrf
             <div class="grid grid-cols-4 lg:gap-10 md:gap-6 gap-4">
+                <div class="col-span-4">
+                    <div class="p-2">
+                        <div class="inline-flex items-center bg-white leading-none text-blue-900 border-opacity-95 rounded-full p-2 px-4 shadow text-teal md:text-sm text-xs">
+                            <span class="flex bg-blue-900 opacity-95 text-white rounded-full h-6 px-3 justify-center items-center">Aviso</span>
+                            <span class="py-2 px-2">Sube imágenes tipo:  <span class="font-bold">JPG, JPEG, PNG</span> o documentos en formato <span class="font-bold">PDF</span>.</span>
+                        </div>
+                    </div>
+                </div>
                 @php
                     $inputs = [
                         [
