@@ -25,7 +25,7 @@
                         ],
                         [
                             'id' => 'cre',
-                            'title' => 'Factura CRE*',
+                            'title' => 'Aviso de Luz (CRE)*',
                             'description' => 'Ingresa una imagen o pdf de la última factura de cre.',
                         ],
                         [
