@@ -1,56 +1,16 @@
 <x-guest-layout>
     <form action="{{ route('solicit_credit_store') }}" method="post" autocomplete="off">
         @csrf
-        <div class="grid grid-cols-12 gap-5 px-6 py-3 mt-3" x-data="{ showModal1: false}"
-            :class="{'overflow-y-hidden': showModal1 }">
+        <div class="grid grid-cols-12 gap-5 px-6 py-3 mt-3">
             {{-- Notification --}}
             <div class="col-span-12">
                 <div class="p-2">
                     <div class="inline-flex items-center bg-white leading-none text-yellow-700 border-opacity-95 rounded-full py-2 px-4 shadow text-teal md:text-sm text-xs">
                         <span class="flex items-center bg-yellow-500 opacity-95 text-white rounded-full h-6 px-3 justify-center">Ayuda</span>
                         <span class="py-2 px-2">
-                            Tienes problema para solicitar tu crédito?...Contáctanos haciendo<a href="https://wa.me/message/N3LZY6C5B674L1" target="_blank" class="font-bold">&nbsp;<span class="text-black">click aquí</span>&nbsp;</a> o escanea nuestro QR haciendo<a @click="showModal1 = true" class="text-black font-bold cursor-pointer">&nbsp;click aquí&nbsp;</a>.
+                            Tienes problema para solicitar tu crédito?...Contáctanos haciendo<a href="https://wa.me/message/N3LZY6C5B674L1" target="_blank" class="font-bold">&nbsp;<span class="text-black">click aquí</span>&nbsp;</a>.
                         </span>
                     </div>
-                    {{-- Modal Help --}}
-                    <div class="fixed inset-0 w-full h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
-                        x-show="showModal1" x-transition:enter="transition duration-300"
-                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                        x-transition:leave="transition duration-300" x-transition:leave-start="opacity-100"
-                        x-transition:leave-end="opacity-0">
-                        <div class="relative sm:w-3/4 md:w-1/2 lg:w-1/3 mx-2 sm:mx-auto my-10 opacity-100">
-                            <div style="background-color: #00b49b" class="relative shadow-lg rounded-md text-white z-20"
-                                @click.away="showModal1 = false" x-show="showModal1"
-                                x-transition:enter="transition transform duration-300" x-transition:enter-start="scale-0"
-                                x-transition:enter-end="scale-100" x-transition:leave="transition transform duration-300"
-                                x-transition:leave-start="scale-100" x-transition:leave-end="scale-0">
-                                <header class="flex items-center justify-between p-2">
-                                    {{-- <h2 class="font-semibold">Header</h2> --}}
-                                    <button class="focus:outline-none p-2" @click="showModal1 = false">
-                                        <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 18 18">
-                                            <path
-                                                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </header>
-                                <main class="p-2 text-center">
-                                    <img src="https://cdn.hauscenter.com.bo/qr_whatsapp.jpg" alt="">
-                                    <p class="leading-4 text px-5">Escanea el código QR para que un facilitador gestione tu
-                                        crédito vía whatsapp.</p>
-                                </main>
-                                <footer class="flex justify-center p-2">
-                                    <button
-                                        class="bg-red-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-red-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
-                                        @click="showModal1 = false">
-                                        Cerrar
-                                    </button>
-                                </footer>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- End Modal --}}
                 </div>
                 <div class="p-2">
                     <div class="inline-flex items-center bg-white leading-none text-blue-900 border-opacity-95 rounded-full p-2 px-4 shadow text-teal md:text-sm text-xs">
