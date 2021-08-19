@@ -11,7 +11,7 @@ class CreditController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('credit.index');
     }
     public function create(Request $request)
     {
@@ -86,5 +86,9 @@ class CreditController extends Controller
                 return redirect()->route('upload_file_independent');
                 break;
         }
+    }
+    public function branch_offices()
+    {
+        return view('credit.branch_offices');
     }
 }
