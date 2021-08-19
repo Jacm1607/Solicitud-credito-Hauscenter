@@ -46,7 +46,7 @@
                                     <p class="text-sm text-white">Solicita un cobrador para poder realizar tus pagos.
                                     </p>
                                 </div>
-                                <a href="#"
+                                <a href="https://wa.link/c36pi9" target="_blank"
                                     class="border border-white rounded-lg inset-0 text-sm leading-3 text-center text-white py-2 px-6 w-full hover:bg-white hover:text-gray-800">Solicitar</a>
                             </div>
                             <img class="w-44 object-contain" src="https://cdn.hauscenter.com.bo/credito/card1.png">
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-span-12">
                     <img class="w-full object-cover rounded-lg"
-                        src="https://cdn.hauscenter.com.bo/credito/banner/agosto01.jpg" alt="" srcset="">
+                        src="https://cdn.hauscenter.com.bo/credito/banner/agosto01.jpg">
                 </div>
             </div>
         </div>
