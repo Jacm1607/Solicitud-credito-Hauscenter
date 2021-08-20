@@ -13,16 +13,16 @@
                     </div>
                 </div>
                 <div class="p-2">
-                    <div class="inline-flex items-center bg-white leading-none text-blue-900 border-opacity-95 rounded-full p-2 px-4 shadow text-teal md:text-sm text-xs">
-                        <span class="flex bg-blue-900 opacity-95 text-white rounded-full h-6 px-3 justify-center items-center">Aviso</span>
+                    <div class="inline-flex items-center bg-white leading-none text-sky-900 border-opacity-95 rounded-full p-2 px-4 shadow text-teal md:text-sm text-xs">
+                        <span class="flex bg-sky-900 opacity-95 text-white rounded-full h-6 px-3 justify-center items-center">Aviso</span>
                         <span class="py-2 px-2">Completa todos los campos requeridos para poder iniciar una solicitud.</span>
                     </div>
                 </div>
             </div>
             {{-- Cards --}}
             <div class="lg:col-span-8 md:col-span-6 col-span-12">
-                <div class="h-full bg-white shadow-lg mx-auto border-b-4 border-blue-900 border-opacity-95 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-500">
-                    <div class="bg-blue-900 opacity-95 flex h-16  items-center">
+                <div class="h-full bg-white shadow-lg mx-auto border-b-4 border-sky-900 border-opacity-95 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-500">
+                    <div class="bg-sky-900 opacity-95 flex h-16  items-center">
                         <h1 class="text-white ml-4 border-2 py-1 px-3 rounded-full">1</h1>
                         <p class="ml-4 text-white uppercase">Información Básica</p>
                     </div>
@@ -84,8 +84,8 @@
                 </div>
             </div>
             <div class="lg:col-span-4 md:col-span-6 col-span-12">
-                <div class="h-full bg-white shadow-lg mx-auto border-b-4 border-blue-900 border-opacity-95 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-500">
-                    <div class="bg-blue-900 opacity-95 flex h-16 items-center">
+                <div class="h-full bg-white shadow-lg mx-auto border-b-4 border-sky-900 border-opacity-95 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-500">
+                    <div class="bg-sky-900 opacity-95 flex h-16 items-center">
                         <h1 class="text-white ml-4 border-2 py-1 px-3 rounded-full">2</h1>
                         <p class="ml-4 text-white uppercase">Información Financiera</p>
                     </div>
@@ -122,78 +122,77 @@
                 <div class="h-full bg-white shadow-lg mx-auto border-b-4 border-red-500 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-500">
                     <div class="bg-red-500  flex h-16 items-center">
                         <h1 class="text-white ml-4 border-2 py-1 px-3 rounded-full">3</h1>
-                        <p class="ml-4 text-white uppercase">AUTORIZACIÓN INFOCENTER – INFOCRED</p>
+                        <p class="ml-4 text-white uppercase">BURO DE INFORMACIÓN CREDITICIA (INFOCENTER)</p>
                     </div>
                     <div class="p-6">
-                        <p class="leading-4 text-sm my-2">En mi Titular, y/o Garante autorizo expresamente a
-                            <strong>HASUCENTER</strong>., con <strong>NIT 312394023</strong>, para
-                            que lleve a cabo consultas y verificaciones a través de los servicios
-                            del <strong>BUROS DE INFORMACIÓN CREDITICIA</strong> para conocer la
-                            situación que presento respecto de mis obligaciones y antecedentes
-                            personales, laborales.
+                        <p class="leading-5"><span class="font-bold">Paso 1: </span>Descargue el documento de Aurotización de Buro de Información Crediticia.</p>
+                        <p class="my-4">
+                            <a href="{{ route('download_pdf') }}" class="py-2 px-4 bg-cyan-600 text-white rounded-lg">Descargar documento <i class="fas fa-cloud-download-alt animate-bounce"></i></a>
                         </p>
-                        <p class="leading-4 text-sm my-2">Del mismo modo, faculto de forma expresa que la organización
-                            autorizada
-                            reporte al sistema financiero la información referida a mis datos como
-                            cliente, así como el endeudamiento que he mantenido o mantega en el
-                            futuro, autorizando que estos registros puedan ser consultados por
-                            terceras personas a través del <strong>BUROS CREDITICIOS</strong> para
-                            efectos de control y cumplimiento de Reglamento para la Constitución y
-                            Funcionamiento de buros de Información Crediticia.</p>
+                        <p class="leading-5"><span class="font-bold">Paso 2: </span> Imprime el documento en una hoja limpia y de color blanco.</p>
+                        <p class="leading-5">
+                            <span class="font-bold">Paso 3: </span> Coloca los siguientes datos en el siguiente orden:
+                            <ul class="ml-4">
+                                <li>- Firma.</li>
+                                <li>- Nombre completo.</li>
+                                <li>- Número de tu cedula de identidad.</li>
+                            </ul>
+                            <span class="font-bold">Nota: Tus datos debes realizarlo con bolígrafo color azul.</span>
+                        </p>
                         <p class="my-2">
-                        <div class="flex justify-between items-center">
-                            <div class="">
-                                <div class="flex">
-                                    <label class="text-xs uppercase mr-6">Sí, acepto</label>
-                                    <button type="button"
-                                        class="w-9 h-4 rounded-full bg-gray-300 flex items-center transition duration-300 focus:outline-none shadow"
-                                        onclick="toggleTheme()">
-                                        <div id="switch-toggle"
-                                            class="w-5 h-5 animate-pulse relative rounded-full transition duration-500 transform bg-gray-500 -translate-x-2 p-1 text-white">
-                                        </div>
-                                        <input type="checkbox" class="hidden" name="infocenter" id="input_infocenter">
-                                    </button>
+                            <div class="flex justify-between items-center">
+                                <div class="">
+                                    {{-- <div class="flex">
+                                        <label class="text-xs uppercase mr-6">Sí, acepto</label>
+                                        <button type="button"
+                                            class="w-9 h-4 rounded-full bg-gray-300 flex items-center transition duration-300 focus:outline-none shadow"
+                                            onclick="toggleTheme()">
+                                            <div id="switch-toggle"
+                                                class="w-5 h-5 animate-pulse relative rounded-full transition duration-500 transform bg-gray-500 -translate-x-2 p-1 text-white">
+                                            </div>
+                                            <input type="checkbox" class="hidden" name="infocenter" id="input_infocenter">
+                                        </button>
+                                    </div>
+                                    @error('infocenter')
+                                        <small class="rounded-lg bg-red-700 text-white font-bold px-3">{{ $message }}</small>
+                                    @enderror --}}
                                 </div>
-                                @error('infocenter')
-                                    <small class="rounded-lg bg-red-700 text-white font-bold px-3">{{ $message }}</small>
-                                @enderror
-                            </div>
-                            <div class="">
-                                <button type="submit" class="h-full bg-green-500 text-white font-bold rounded-full border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
-                                    <span class="mr-2">Continuar</span>
-                                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                        <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
-                                    </svg> --}}
-                                </button>
-                                <script>
-                                    const switchToggle = document.querySelector('#switch-toggle');
-                                    const infocenter = document.getElementById('input_infocenter');
-                                    let isCheck = false;
+                                <div class="">
+                                    <button type="submit" class="h-full bg-green-500 text-white font-bold rounded-full border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+                                        <span class="mr-2">Continuar</span>
+                                        {{-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                                        </svg> --}}
+                                    </button>
+                                    {{-- <script>
+                                        const switchToggle = document.querySelector('#switch-toggle');
+                                        const infocenter = document.getElementById('input_infocenter');
+                                        let isCheck = false;
 
-                                    function toggleTheme() {
-                                        isCheck = !isCheck
-                                        infocenter.checked = !infocenter.checked
-                                        switchTheme()
-                                    }
-
-                                    function switchTheme() {
-                                        if (isCheck) {
-                                            switchToggle.classList.remove('bg-gray-400', '-translate-x-2')
-                                            switchToggle.classList.add('bg-lime-400', 'translate-x-full')
-                                            setTimeout(() => {
-                                                switchToggle.classList.remove('animate-pulse')
-                                            }, 250);
-                                        } else {
-                                            switchToggle.classList.add('bg-gray-400', '-translate-x-2')
-                                            switchToggle.classList.remove('bg-lime-400', 'translate-x-full')
-                                            setTimeout(() => {
-                                                switchToggle.classList.add('animate-pulse')
-                                            }, 250);
+                                        function toggleTheme() {
+                                            isCheck = !isCheck
+                                            infocenter.checked = !infocenter.checked
+                                            switchTheme()
                                         }
-                                    }
-                                </script>
+
+                                        function switchTheme() {
+                                            if (isCheck) {
+                                                switchToggle.classList.remove('bg-gray-400', '-translate-x-2')
+                                                switchToggle.classList.add('bg-lime-400', 'translate-x-full')
+                                                setTimeout(() => {
+                                                    switchToggle.classList.remove('animate-pulse')
+                                                }, 250);
+                                            } else {
+                                                switchToggle.classList.add('bg-gray-400', '-translate-x-2')
+                                                switchToggle.classList.remove('bg-lime-400', 'translate-x-full')
+                                                setTimeout(() => {
+                                                    switchToggle.classList.add('animate-pulse')
+                                                }, 250);
+                                            }
+                                        }
+                                    </script> --}}
+                                </div>
                             </div>
-                        </div>
                         </p>
                     </div>
                 </div>
