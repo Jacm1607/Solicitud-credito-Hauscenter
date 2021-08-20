@@ -16,6 +16,7 @@
     @livewireStyles
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/71b57ea171.js" crossorigin="anonymous"></script>
 </head>
 <style>
     input::-webkit-outer-spin-button,
