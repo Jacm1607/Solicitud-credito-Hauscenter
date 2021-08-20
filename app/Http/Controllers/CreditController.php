@@ -87,6 +87,11 @@ class CreditController extends Controller
                 break;
         }
     }
+    public function buro_crediticio_pdf()
+    {
+        $pdf = \PDF::loadView('credit.pdf.autorizacion_crediticia');
+        return $pdf->setPaper([0, 0, 612.00, 792.00])->download('autorizacion_de_información_crediticia.pdf');
+    }
     public function branch_offices()
     {
         return view('credit.branch_offices');
