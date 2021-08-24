@@ -10,6 +10,7 @@ Route::get('/sucursales', [CreditController::class, 'branch_offices'])->name('br
 Route::get('/solicitar-credito', [CreditController::class, 'create'])->name('solicit_credit_create');
 Route::get('/descargar', [CreditController::class , 'buro_crediticio_pdf'])->name('download_pdf');
 Route::post('solicit_credit_store', [CreditController::class, 'store'])->name('solicit_credit_store');
+Route::get('/finalizar-solicitud', [CreditController::class, 'finish'])->name('finish_credit');
 
 Route::get('/cargar-archivo-dependiente', [UploadFileDependent::class, 'index'])->name('upload_file_dependent');
 Route::post('upload_file_dependent_store', [UploadFileDependent::class, 'store'])->name('upload_file_dependent_store');
