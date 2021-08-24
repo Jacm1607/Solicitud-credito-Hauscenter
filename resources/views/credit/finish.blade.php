@@ -1,6 +1,5 @@
 <x-guest-layout>
-    <div class="grid grid-cols-12 gap-5 px-6 py-3 mt-3" x-data="{ showModal1: false}"
-        :class="{'overflow-y-hidden': showModal1 }">
+    <div class="grid grid-cols-12 gap-5 px-6 pt-6" style="padding-bottom: calc(22%)">
         {{-- Notification --}}
         <div class="col-span-12">
             <div class="p-2">
@@ -21,7 +20,7 @@
                         Revisaremos la información y en breve un facilitador se pondrá en contacto para indicarte el siguiente paso. También puedes comunicarte con nosotros al <a class="text-green-600" target="_blank" href="https://wa.link/eekfh9">(+591) 65069921</a>. Muchas gracias por tu preferencia! <b>Hauscenter eCommerce.</b>
                     </p>
                     <div class="flex justify-end items-center">
-                            <a href="https://hauscenter.com.bo/ecommerce/public/" class="h-full bg-green-500 text-white font-bold rounded-full border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+                            <a href="{{ url('/') }}" class="h-full bg-green-500 text-white font-bold rounded-full border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
                                 <span class="mr-2">Ir a Inicio</span>
                             </a>
                     </div>

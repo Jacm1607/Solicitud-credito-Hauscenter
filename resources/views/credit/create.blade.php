@@ -131,7 +131,7 @@
                         </p>
                         <p class="leading-5"><span class="font-bold">Paso 2: </span> Imprime el documento en una hoja limpia y de color blanco.</p>
                         <p class="leading-5">
-                            <span class="font-bold">Paso 3: </span> Coloca los siguientes datos en el siguiente orden:
+                            <span class="font-bold">Paso 3: </span> Coloca los siguientes datos en el orden correspondiente:
                             <ul class="ml-4">
                                 <li>- Firma.</li>
                                 <li>- Nombre completo.</li>

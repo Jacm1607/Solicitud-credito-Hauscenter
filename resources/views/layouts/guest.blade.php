@@ -89,7 +89,7 @@
 
 <body class="font-sans antialiased">
     <x-navbar></x-navbar>
-    <div class="font-sans bg-gray-200 dark:bg-gray-600 text-gray-900 antialiased h-full">
+    <div class="font-sans bg-gray-200 dark:bg-gray-600 text-gray-900 antialiased">
         {{ $slot }}
     </div>
     <x-footer></x-footer>
