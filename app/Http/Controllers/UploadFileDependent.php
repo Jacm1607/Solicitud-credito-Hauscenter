@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\CreditRegistered;
+use App\Models\Request as ModelsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -13,7 +14,49 @@ class UploadFileDependent extends Controller
     public function index()
     {
         if (Session::has('data_credit')) {
-            return view('credit.upload_file_dependent');
+            $inputs = [
+                (object)[
+                    'id' => 'ci1',
+                    'title' => 'Cédula de identidad anverso*',
+                    'description' => 'Ingresa una imagen o pdf de la cédula de identidad del lado anverso.',
+                ],
+                (object)[
+                    'id' => 'ci2',
+                    'title' => 'Cédula de identidad reverso*',
+                    'description' => 'Ingresa una imagen o pdf de la cédula de identidad del lado reverso.',
+                ],
+                (object)[
+                    'id' => 'cre',
+                    'title' => 'Aviso de Luz (CRE)*',
+                    'description' => 'Ingresa una imagen o pdf de la última factura de cre.',
+                ],
+                (object)[
+                    'id' => 'afp',
+                    'title' => 'Extracto de AFP',
+                    'description' => 'Ingresa una imagen o pdf del extracto de tu extracto de la AFP.',
+                ],
+                (object)[
+                    'id' => 'pago1',
+                    'title' => 'Última boleta de pago*',
+                    'description' => 'Ingresa una imagen o pdf de tu última boleta de pago.',
+                ],
+                (object)[
+                    'id' => 'pago2',
+                    'title' => 'Penúltima boleta de pago',
+                    'description' => 'Ingresa una imagen o pdf de tu penúltima boleta de pago.',
+                ],
+                (object)[
+                    'id' => 'pago3',
+                    'title' => 'Antepenúltima boleta de pago',
+                    'description' => 'Ingresa una imagen o pdf de tu antepenúltima boleta de pago.',
+                ],
+                (object)[
+                    'id' => 'buro_crediticio',
+                    'title' => 'Autorización de Buro de Información Crediticio*',
+                    'description' => 'Ingresa una imagen o pdf de la autorización descargada. Asegurate que este firmada y llenada con tu Datos personales.',
+                ]
+            ];
+            return view('credit.upload_file_dependent', compact('inputs'));
         } else {
             return abort(404);
         }
@@ -30,6 +73,7 @@ class UploadFileDependent extends Controller
                 "pago1" => "required|file|max:7168",
                 "pago2" => "file|max:7168",
                 "pago3" => "file|max:7168",
+                "buro_crediticio" => "required|file|max:7168",
             ],[
                 "ci1.required" => "Campo obligatorio.",
                 "ci1.file" => "Necesita subir un archivo.",
@@ -49,17 +93,37 @@ class UploadFileDependent extends Controller
                 "pago2.max" => "El archivo no debe pesar mas de 7 mb.",
                 "pago3.file" => "Necesita subir un archivo.",
                 "pago3.max" => "El archivo no debe pesar mas de 7 mb.",
+                "buro_crediticio.required" => "Campo obligatorio.",
+                "buro_crediticio.file" => "Necesita subir un archivo.",
+                "buro_crediticio.max" => "El archivo no debe pesar mas de 7 mb.",
             ]);
             $data_credit = Session::get('data_credit');
-            $name = $data_credit['fullname'];
-            $ci = $data_credit['ci'];
+            // dd($data_credit->fullname);
+            $fullname = $data_credit->fullname;
+            $ci = $data_credit->ci;
 
-            $url_file = "dependent/$ci - $name";
+            $s_credit = new ModelsRequest();
+            $s_credit->fullname = strtoupper($fullname);
+            $s_credit->ci = $ci;
+            $s_credit->exp = strtoupper($data_credit->exp);
+            $s_credit->cellphone = $data_credit->cellphone;
+            $s_credit->type = $data_credit->type;
+            $s_credit->mount = $data_credit->mount;
+            $s_credit->rental = $data_credit->rental;
+            $s_credit->credit_commercial = $data_credit->credit_commercial;
+            $s_credit->product = strtoupper($data_credit->product);
+            $s_credit->credit_finance = $data_credit->credit_finance;
+
+            $s_credit->save();
+
+            $url_file = "dependent/$ci - $fullname";
 
             $path_ci1 = $request->file('ci1')->store($url_file);
             $path_ci2 = $request->file('ci2')->store($url_file);
             $path_cre = $request->file('cre')->store($url_file);
             $path_pago1 = $request->file('pago1')->store($url_file);
+            $path_cre = $request->file('buro_crediticio')->store($url_file);
+
             if (isset($request->afp)) {
                 $path_afp = $request->file('afp')->store($url_file);
             }
@@ -69,9 +133,9 @@ class UploadFileDependent extends Controller
             if (isset($request->pago3)) {
                 $path_pago3 = $request->file('pago3')->store($url_file);
             }
-            Mail::to('desarrollo@markas.com.bo')->send(new CreditRegistered());
+            // Mail::to('desarrollo@markas.com.bo')->send(new CreditRegistered());
             Session::forget('data_credit');
-            return view('credit.finish');
+            return redirect()->route('finish_credit');
         } else {
             return redirect()->view('credit.create');
         }
