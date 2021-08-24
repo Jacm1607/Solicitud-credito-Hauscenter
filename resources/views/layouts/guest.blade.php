@@ -43,7 +43,6 @@
     ::-webkit-scrollbar-thumb {
         background: rgb(170, 170, 170);
         border-radius: 8px;
-
     }
 
     /* Handle on hover */
@@ -90,7 +89,7 @@
 
 <body class="font-sans antialiased">
     <x-navbar></x-navbar>
-    <div class="font-sans bg-gray-200 dark:bg-gray-600 text-gray-900 antialiased">
+    <div class="font-sans bg-gray-200 dark:bg-gray-600 text-gray-900 antialiased h-full">
         {{ $slot }}
     </div>
     <x-footer></x-footer>
