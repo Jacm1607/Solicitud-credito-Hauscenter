@@ -39,7 +39,7 @@ class CreditController extends Controller
             "rental" => "required",
             "credit_commercial" => "required",
             "credit_finance" => "required",
-            "infocenter" => "accepted"
+            // "infocenter" => "accepted"
         ],[
             "fullname.required" => "Campo obligatorio.",
             "fullname.min" => "Mínimo 6 caracteres.",
@@ -55,27 +55,21 @@ class CreditController extends Controller
             "rental.required" => "Campo obligatorio.",
             "credit_commercial.required" => "Campo obligatorio.",
             "credit_finance.required" => "Campo obligatorio.",
-            "infocenter.accepted" => "Debes aceptar la autorización antes."
+            // "infocenter.accepted" => "Debes aceptar la autorización antes."
         ]);
-        $data_credit = [
+        $data_credit = (object)[
             "fullname" => $request->fullname,
             "ci" => $request->ci,
+            "cellphone" => $request->cellphone,
+            "exp" => $request->exp,
             "type" => $request->type,
+            "product" => $request->product,
+            "mount" => $request->mount,
+            "rental" => $request->rental ?? 0,
+            "credit_commercial" => $request->credit_commercial ?? 0,
+            "credit_finance" => $request->credit_finance ?? 0
         ];
         Session::put('data_credit',$data_credit);
-        $s_credit = new ModelsRequest();
-        $s_credit->fullname = strtoupper($request->fullname);
-        $s_credit->ci = $request->ci;
-        $s_credit->exp = strtoupper($request->exp);
-        $s_credit->cellphone = $request->cellphone;
-        $s_credit->type = $request->type;
-        $s_credit->mount = $request->mount;
-        $s_credit->rental = $request->rental;
-        $s_credit->credit_commercial = $request->credit_commercial;
-        $s_credit->product = strtoupper($request->product);
-        $s_credit->credit_finance = $request->credit_finance;
-
-        $s_credit->save();
 
         switch ($request->type) {
             case 'dependiente':
@@ -95,5 +89,9 @@ class CreditController extends Controller
     public function branch_offices()
     {
         return view('credit.branch_offices');
+    }
+    public function finish()
+    {
+        return view('credit.finish');
     }
 }
