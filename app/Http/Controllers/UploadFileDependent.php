@@ -133,7 +133,13 @@ class UploadFileDependent extends Controller
             if (isset($request->pago3)) {
                 $path_pago3 = $request->file('pago3')->store($url_file);
             }
-            // Mail::to('desarrollo@markas.com.bo')->send(new CreditRegistered());
+
+            if (env('APP_ENV') == 'local') {
+                Mail::to('desarrollo@markas.com.bo')->send(new CreditRegistered());
+            } else {
+                Mail::to('ecommerce@hauscenter.com.bo')->send(new CreditRegistered());
+            }
+
             Session::forget('data_credit');
             return redirect()->route('finish_credit');
         } else {

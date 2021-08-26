@@ -39,13 +39,13 @@
 
       <table style="margin: 40px 0px 10px" width="100%">
         <tr>
-            <td>En mi calidad de Titular, y/o Garante autorizo expresamente a <strong>HAUSCENTER</strong>., con <strong>NIT 312394023</strong>, para que lleve a cabo consultas y verificaciones a través de los servicios del <strong>BUROS DE INFORMACIÓN CREDITICIA</strong> para conocer la situación que presento respecto de mis oblicaciones y antecedentes personales, laborales.</td>
+            <td>En mi calidad de Titular, y/o Garante autorizo expresamente a <strong>HAUSCENTER</strong>., con <strong>NIT 312394023</strong>, para que lleve a cabo consultas y verificaciones a través de los servicios del <strong>BUROS DE INFORMACIÓN CREDITICIA</strong> para conocer la situación que presento respecto de mis obligaciones y antecedentes personales, laborales.</td>
         </tr>
       </table>
 
       <table style="margin: 0px 0px 40px" width="100%">
         <tr>
-            <td>Del mismo modo, faculto de forma expresa que la organización autorizada reporte al sistema financiero la información referida a mis datos como cliente, así como el endeudamiento que ha mantenido o mantenga en el futuro, autorizando que estos registros puedan ser consultados por terceras personas a través del <strong>BUROS CREDITICIOS</strong> para efectos de control y cumplimiento del Reglamento para la Constitución y Funcionamiento de buros de Información Crediticia.</td>
+            <td>Del mismo modo, faculto de forma expresa que la organización autorizada reporte al sistema financiero la información referida a mis datos como cliente, así como al endeudamiento que ha mantenido o mantenga en el futuro, autorizando que estos registros puedan ser consultados por terceras personas a través del <strong>BUROS CREDITICIOS</strong> para efectos de control y cumplimiento del Reglamento para la Constitución y Funcionamiento de buros de Información Crediticia.</td>
         </tr>
       </table>
       <br/>

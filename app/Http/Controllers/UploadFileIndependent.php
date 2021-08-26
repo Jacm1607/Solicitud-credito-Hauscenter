@@ -130,7 +130,13 @@ class UploadFileIndependent extends Controller
             if (isset($request->fundempresa)) {
                 $path_pago1 = $request->file('fundempresa')->store($url_file);
             }
-            // Mail::to('desarrollo@markas.com.bo')->send(new CreditRegistered());
+
+            if (env('APP_ENV') == 'local') {
+                Mail::to('desarrollo@markas.com.bo')->send(new CreditRegistered());
+            } else {
+                Mail::to('ecommerce@hauscenter.com.bo')->send(new CreditRegistered());
+            }
+
             Session::forget('data_credit');
             return redirect()->route('finish_credit');
         } else {
