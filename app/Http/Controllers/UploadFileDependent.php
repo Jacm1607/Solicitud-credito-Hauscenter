@@ -116,22 +116,43 @@ class UploadFileDependent extends Controller
 
             $s_credit->save();
 
-            $url_file = "dependent/$ci - $fullname";
+            $url_file = "dependiente/$s_credit->id";
 
-            $path_ci1 = $request->file('ci1')->store($url_file);
-            $path_ci2 = $request->file('ci2')->store($url_file);
-            $path_cre = $request->file('cre')->store($url_file);
-            $path_pago1 = $request->file('pago1')->store($url_file);
-            $path_cre = $request->file('buro_crediticio')->store($url_file);
+            // CI ANVERSO
+            $file_ci1 = $request->file('ci1');
+            $ext_ci1 = $file_ci1->extension();
+            $file_ci1->storeAs($url_file, "Carnet_identidad_anverso_$s_credit->id.$ext_ci1");
+            // CI REVERSO
+            $file_ci2 = $request->file('ci2');
+            $ext_ci2 = $file_ci2->extension();
+            $file_ci2->storeAs($url_file, "Carnet_identidad_reverso_$s_credit->id.$ext_ci2");
+            // AVISO DE LUZ
+            $file_cre = $request->file('cre');
+            $ext_cre = $file_cre->extension();
+            $file_cre->storeAs($url_file, "Aviso_luz_$s_credit->id.$ext_cre");
+            // ULTIMA BOLETA DE PAGO
+            $file_pago1 = $request->file('pago1');
+            $ext_pago1 = $file_pago1->extension();
+            $file_pago1->storeAs($url_file, "Ultima_boleta_pago_$s_credit->id.$ext_pago1");
+            // BURO CREDITICIO
+            $file_buro_crediticio = $request->file('buro_crediticio');
+            $ext_buro_crediticio = $file_buro_crediticio->extension();
+            $file_buro_crediticio->storeAs($url_file, "Buro_crediticio_$s_credit->id.$ext_buro_crediticio");
 
             if (isset($request->afp)) {
-                $path_afp = $request->file('afp')->store($url_file);
+                $file_afp = $request->file('afp');
+                $ext_afp = $file_afp->extension();
+                $file_afp->storeAs($url_file, "AFP_$s_credit->id.$ext_afp");
             }
             if (isset($request->pago2)) {
-                $path_pago1 = $request->file('pago2')->store($url_file);
+                $file_pago2 = $request->file('pago2');
+                $ext_pago2 = $file_pago1->extension();
+                $file_pago2->storeAs($url_file, "Penultima_boleta_pago_$s_credit->id.$ext_pago2");
             }
             if (isset($request->pago3)) {
-                $path_pago3 = $request->file('pago3')->store($url_file);
+                $file_pago3 = $request->file('pago3');
+                $ext_pago3 = $file_pago3->extension();
+                $file_pago3->storeAs($url_file, "Antepenultima_boleta_pago_$s_credit->id.$ext_pago3");
             }
 
             if (env('APP_ENV') == 'local') {

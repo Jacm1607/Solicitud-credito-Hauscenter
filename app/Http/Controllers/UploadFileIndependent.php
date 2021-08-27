@@ -114,21 +114,45 @@ class UploadFileIndependent extends Controller
 
             $s_credit->save();
 
-            $url_file = "dependent/$ci - $fullname";
+            $url_file = "independiente/$s_credit->id";
 
-            $path_ci1 = $request->file('ci1')->store($url_file);
-            $path_ci2 = $request->file('ci2')->store($url_file);
-            $path_cre = $request->file('cre')->store($url_file);
-            $path_nit = $request->file('nit')->store($url_file);
-            $path_buro_crediticio = $request->file('buro_crediticio')->store($url_file);
+            // CI ANVERSO
+            $file_ci1 = $request->file('ci1');
+            $ext_ci1 = $file_ci1->extension();
+            $file_ci1->storeAs($url_file, "Carnet_identidad_anverso_$s_credit->id.$ext_ci1");
+            // CI REVERSO
+            $file_ci2 = $request->file('ci2');
+            $ext_ci2 = $file_ci2->extension();
+            $file_ci2->storeAs($url_file, "Carnet_identidad_reverso_$s_credit->id.$ext_ci2");
+            // AVISO DE LUZ
+            $file_cre = $request->file('cre');
+            $ext_cre = $file_cre->extension();
+            $file_cre->storeAs($url_file, "Aviso_luz_$s_credit->id.$ext_cre");
+            // NIT
+            $file_nit = $request->file('nit');
+            $ext_nit = $file_nit->extension();
+            $file_nit->storeAs($url_file, "NIT_$s_credit->id.$ext_nit");
+            // BURO CREDITICIO
+            $file_buro_crediticio = $request->file('buro_crediticio');
+            $ext_buro_crediticio = $file_buro_crediticio->extension();
+            $file_buro_crediticio->storeAs($url_file, "Buro_crediticio_$s_credit->id.$ext_buro_crediticio");
             if (isset($request->license)) {
-                $path_license = $request->file('license')->store($url_file);
+                // $path_license = $request->file('license')->storeAs($url_file, "Licencia_funcionamiento_$s_credit->id");
+                $file_license = $request->file('license');
+                $ext_license = $file_license->extension();
+                $file_license->storeAs($url_file, "Licencia_funcionamiento_$s_credit->id.$ext_license");
             }
             if (isset($request->entry)) {
-                $path_pago1 = $request->file('entry')->store($url_file);
+                // $path_entry = $request->file('entry')->storeAs($url_file, "Respaldo_ingreso_$s_credit->id");
+                $file_entry = $request->file('entry');
+                $ext_entry = $file_entry->extension();
+                $file_entry->storeAs($url_file, "Respaldo_ingreso_$s_credit->id.$ext_entry");
             }
             if (isset($request->fundempresa)) {
-                $path_pago1 = $request->file('fundempresa')->store($url_file);
+                // $path_fundempresa = $request->file('fundempresa')->storeAs($url_file, "Fundempresa_$s_credit->id");
+                $file_fundempresa = $request->file('fundempresa');
+                $ext_fundempresa = $file_fundempresa->extension();
+                $file_fundempresa->storeAs($url_file, "Fundempresa_$s_credit->id.$ext_fundempresa");
             }
 
             if (env('APP_ENV') == 'local') {
