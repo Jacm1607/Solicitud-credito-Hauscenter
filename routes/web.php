@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CreditController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UploadFileDependent;
 use App\Http\Controllers\UploadFileIndependent;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,6 @@ Route::post('upload_file_dependent_store', [UploadFileDependent::class, 'store']
 Route::get('/cargar-archivo-independiente', [UploadFileIndependent::class, 'index'])->name('upload_file_independent');
 Route::post('upload_file_independent_store', [UploadFileIndependent::class, 'store'])->name('upload_file_independent_store');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class , 'index'] )->name('dashboard');
+Route::get('/show/{id}', [DashboardController::class, 'show'])->name('show');
+Route::get('/download', [DashboardController::class, 'getFile'])->name('download_file');
