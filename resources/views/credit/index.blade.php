@@ -3,6 +3,10 @@
     <section class="bg-white">
         <div class="py-4 px-6">
             <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-12 text-center my-5">
+                    <h3 class="text-3xl font-semibold">Paga tu cuota</h3>
+                    <small class="border-b-2 border-gray-200 px-4">Ahora pagar tu cuota sera mucho más fácil...</small>
+                </div>
                 <div class="lg:col-span-4 md:col-span-6 col-span-12">
                     <div class="bg-gray-700 bg-opacity-90 shadow-lg rounded-3xl py-8 px-4 h-full">
                         <div class="flex justify-between">
@@ -53,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12">
+                <div class="col-span-12 my-4">
                     <img class="w-full object-cover rounded-lg"
                         src="https://cdn.hauscenter.com.bo/credito/banner/agosto01.jpg">
                 </div>
