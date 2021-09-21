@@ -1,3 +1,10 @@
+@section('css')
+    <link href="{{asset('vendor/select2/css/select2.min.css')}}" rel="stylesheet" />
+@endsection
+@section('js')
+    <script src="{{asset('vendor/jquery/jquery-3.6.0.slim.min.js')}}"></script>
+    <script src="{{asset('vendor/select2/js/select2.min.js')}}"></script>
+@endsection
 <x-guest-layout>
     <form action="{{ route('solicit_credit_store') }}" method="post" autocomplete="off">
         @csrf
@@ -71,13 +78,20 @@
                             </div>
                             <div class="lg:col-span-4 col-span-12">
                                 <x-jet-label for="product" value="Producto(s)<span class='text-red-500'>*</span>" />
-                                <select name="product" id="product" class="w-full mt-1 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" required>
-                                    <option value="" disabled selected>Seleccione una opción</option>
+                                <select name="product" id="product" class="w-full js-example-basic-single" required>
+                                    @if (!isset($_GET['token']) && !isset($_GET['product']))
+                                        <option value="" disabled selected>Seleccione una opción</option>
+                                    @endif
                                     @foreach ($product as $item)
                                         <option value="{{ $item->description }}" {{ old('product') == $item->description ? 'selected' : '' }}>{{ Str::limit($item->description, 25, '...') }}</option>
                                     @endforeach
                                 </select>
                                 <x-jet-input-error for="product" />
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.js-example-basic-single').select2();
+                                    });
+                                </script>
                             </div>
                         </div>
                     </div>
